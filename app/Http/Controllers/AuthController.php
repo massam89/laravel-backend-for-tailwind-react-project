@@ -13,7 +13,7 @@ class AuthController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'checkUsername']]);
     }
     /**
      * Get a JWT via given credentials.
@@ -97,5 +97,21 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60,
             'user' => auth()->user()
         ]);
+    }
+
+    /**
+     * Check username unique.
+     *
+     */
+
+    public function checkUsername(Request $request) {
+
+        $username = $request->username;
+        
+        if (User::where('username', $username)->exists()) {
+            return 'true';
+        } else {
+            return 'false';
+        }
     }
 }
