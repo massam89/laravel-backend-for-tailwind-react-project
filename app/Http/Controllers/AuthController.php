@@ -90,7 +90,6 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     protected function createNewToken($token){
-
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
@@ -100,15 +99,12 @@ class AuthController extends Controller
     }
 
     /**
-     * Check username unique.
+     * Check username is unique?
      *
      */
 
-    public function checkUsername(Request $request) {
-
-        $username = $request->username;
-        
-        if (User::where('username', $username)->exists()) {
+    public function checkUsername(Request $request) {    
+        if (User::where('username', $request->username)->exists()) {
             return 'true';
         } else {
             return 'false';
