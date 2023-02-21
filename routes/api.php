@@ -19,4 +19,5 @@ Route::group(['middleware' => ['api', 'lscache:max-age=300;public'],'prefix' => 
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);   
     Route::post('/check-username',  [AuthController::class, 'checkUsername']);
+    Route::get('/customer-data',  [AuthController::class, 'customerData']);
 });

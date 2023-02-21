@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Validator;
+use GuzzleHttp\Client;
 
 class AuthController extends Controller
 {
@@ -109,5 +110,12 @@ class AuthController extends Controller
         } else {
             return 'false';
         }
+    }
+
+    public function customerData () 
+    {
+        $client = new Client(['base_uri' => 'https://randomuser.me/']);
+        $res = $client->request('GET', '/api/?results=10');
+        return $res->getBody();
     }
 }
