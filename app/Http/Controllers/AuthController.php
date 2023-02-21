@@ -123,7 +123,7 @@ class AuthController extends Controller
     public function customerData () 
     {
         $client = new Client(['base_uri' => 'https://randomuser.me/']);
-        $res = $client->request('GET', '/api/?results=10');
+        $res = $client->request('GET', '/api/?results=20');
         return $res->getBody();
     }
 }
