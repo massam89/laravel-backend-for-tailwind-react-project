@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "09a1debc-f41d-43c5-aeb2-8c8c4a93eeb9",
+        "_postman_id": "f6e2dbeb-33ba-4c5d-b51c-d1c0b829b4cf",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"consequatur\",\"password\":\"secret\"}"
+                            "raw": "{\"username\":\"ali\",\"password\":\"secret\"}"
                         },
                         "description": "",
                         "auth": {
@@ -79,7 +79,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"modi\",\"username\":\"architecto\",\"password\":\"secret\"}"
+                            "raw": "{\"name\":\"ali\",\"username\":\"username\",\"password\":\"secret\"}"
                         },
                         "description": "",
                         "auth": {
@@ -113,12 +113,13 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "authorization",
+                                "value": "Example:bearer eyJ0eXAiOiJKV..."
                             }
                         ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"access_token\":\"modi\"}"
-                        },
+                        "body": null,
                         "description": "",
                         "auth": {
                             "type": "noauth"
@@ -189,7 +190,7 @@
                             },
                             {
                                 "key": "authorization",
-                                "value": "et"
+                                "value": "Example:bearer eyJ0eXAiOiJKV..."
                             }
                         ],
                         "body": null,
@@ -269,7 +270,7 @@
                             },
                             {
                                 "key": "authorization",
-                                "value": "repellendus"
+                                "value": "Example:bearer eyJ0eXAiOiJKV..."
                             }
                         ],
                         "body": null,

@@ -26,7 +26,7 @@ class AuthController extends Controller
      /**
      * Log in the user.
      *
-     * @bodyParam   username    string  required    The username of the  user.
+     * @bodyParam   username    string  required    The username of the  user. Example: ali
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
      * @response {
@@ -53,8 +53,8 @@ class AuthController extends Controller
     /**
      * register the user.
      *
-     * @bodyParam   name    string  required    The name of the  user.  
-     * @bodyParam   username    string  required    The username of the  user.
+     * @bodyParam   name    string  required    The name of the  user.  Example: ali
+     * @bodyParam   username    string  required    The username of the  user. Example: username
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
      * @response 
@@ -84,7 +84,7 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @bodyParam   access_token    string  required    access_token
+     * @header authorization Example:bearer eyJ0eXAiOiJKV...
      *
      * @response 
      *
@@ -111,7 +111,7 @@ class AuthController extends Controller
     /**
      * Get the authenticated User's information.
      * 
-     * @header authorization
+     * @header authorization Example:bearer eyJ0eXAiOiJKV...
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -155,7 +155,7 @@ class AuthController extends Controller
     /**
      * get customer users from another sources "randomuser.me"
      * 
-     * @header authorization
+     * @header authorization Example:bearer eyJ0eXAiOiJKV...
      */
 
     public function customerData () 

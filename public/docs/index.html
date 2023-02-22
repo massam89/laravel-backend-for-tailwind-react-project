@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var baseUrl = "http://localhost";
+        var baseUrl = "http://localhost:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -112,7 +112,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -138,11 +138,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/login" \
+    "http://localhost:8000/api/auth/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"consequatur\",
+    \"username\": \"ali\",
     \"password\": \"secret\"
 }"
 </code></pre></div>
@@ -150,7 +150,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/login"
+    "http://localhost:8000/api/auth/login"
 );
 
 const headers = {
@@ -159,7 +159,7 @@ const headers = {
 };
 
 let body = {
-    "username": "consequatur",
+    "username": "ali",
     "password": "secret"
 };
 
@@ -251,10 +251,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="username"                data-endpoint="POSTapi-auth-login"
-               value="consequatur"
+               value="ali"
                data-component="body">
     <br>
-<p>The username of the  user. Example: <code>consequatur</code></p>
+<p>The username of the  user. Example: <code>ali</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -282,12 +282,12 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/register" \
+    "http://localhost:8000/api/auth/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"modi\",
-    \"username\": \"architecto\",
+    \"name\": \"ali\",
+    \"username\": \"username\",
     \"password\": \"secret\"
 }"
 </code></pre></div>
@@ -295,7 +295,7 @@ fetch(url, {
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/register"
+    "http://localhost:8000/api/auth/register"
 );
 
 const headers = {
@@ -304,8 +304,8 @@ const headers = {
 };
 
 let body = {
-    "name": "modi",
-    "username": "architecto",
+    "name": "ali",
+    "username": "username",
     "password": "secret"
 };
 
@@ -394,10 +394,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-auth-register"
-               value="modi"
+               value="ali"
                data-component="body">
     <br>
-<p>The name of the  user. Example: <code>modi</code></p>
+<p>The name of the  user. Example: <code>ali</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -405,10 +405,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="username"                data-endpoint="POSTapi-auth-register"
-               value="architecto"
+               value="username"
                data-component="body">
     <br>
-<p>The username of the  user. Example: <code>architecto</code></p>
+<p>The username of the  user. Example: <code>username</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -436,33 +436,26 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/logout" \
+    "http://localhost:8000/api/auth/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --data "{
-    \"access_token\": \"modi\"
-}"
-</code></pre></div>
+    --header "authorization: Example:bearer eyJ0eXAiOiJKV..."</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/logout"
+    "http://localhost:8000/api/auth/logout"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-};
-
-let body = {
-    "access_token": "modi"
+    "authorization": "Example:bearer eyJ0eXAiOiJKV...",
 };
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -537,19 +530,18 @@ fetch(url, {
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>access_token</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>authorization</code></b>&nbsp;&nbsp;
+&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-               name="access_token"                data-endpoint="POSTapi-auth-logout"
-               value="modi"
-               data-component="body">
+               name="authorization"                data-endpoint="POSTapi-auth-logout"
+               value="Example:bearer eyJ0eXAiOiJKV..."
+               data-component="header">
     <br>
-<p>access_token Example: <code>modi</code></p>
-        </div>
-        </form>
+<p>Example: <code>Example:bearer eyJ0eXAiOiJKV...</code></p>
+            </div>
+                        </form>
 
                     <h2 id="endpoints-POSTapi-auth-refresh">Refresh a token.</h2>
 
@@ -564,14 +556,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/refresh" \
+    "http://localhost:8000/api/auth/refresh" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/refresh"
+    "http://localhost:8000/api/auth/refresh"
 );
 
 const headers = {
@@ -671,21 +663,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/auth/user-profile" \
+    --get "http://localhost:8000/api/auth/user-profile" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "authorization: et"</code></pre></div>
+    --header "authorization: Example:bearer eyJ0eXAiOiJKV..."</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/user-profile"
+    "http://localhost:8000/api/auth/user-profile"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "authorization": "et",
+    "authorization": "Example:bearer eyJ0eXAiOiJKV...",
 };
 
 fetch(url, {
@@ -780,10 +772,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="authorization"                data-endpoint="GETapi-auth-user-profile"
-               value="et"
+               value="Example:bearer eyJ0eXAiOiJKV..."
                data-component="header">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>Example:bearer eyJ0eXAiOiJKV...</code></p>
             </div>
                         </form>
 
@@ -800,14 +792,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/check-username" \
+    "http://localhost:8000/api/auth/check-username" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/check-username"
+    "http://localhost:8000/api/auth/check-username"
 );
 
 const headers = {
@@ -900,21 +892,21 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/auth/customer-data" \
+    --get "http://localhost:8000/api/auth/customer-data" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --header "authorization: repellendus"</code></pre></div>
+    --header "authorization: Example:bearer eyJ0eXAiOiJKV..."</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/customer-data"
+    "http://localhost:8000/api/auth/customer-data"
 );
 
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
-    "authorization": "repellendus",
+    "authorization": "Example:bearer eyJ0eXAiOiJKV...",
 };
 
 fetch(url, {
@@ -1009,10 +1001,10 @@ access-control-allow-origin: *
  &nbsp;
                 <input type="text" style="display: none"
                name="authorization"                data-endpoint="GETapi-auth-customer-data"
-               value="repellendus"
+               value="Example:bearer eyJ0eXAiOiJKV..."
                data-component="header">
     <br>
-<p>Example: <code>repellendus</code></p>
+<p>Example: <code>Example:bearer eyJ0eXAiOiJKV...</code></p>
             </div>
                         </form>
 
