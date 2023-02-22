@@ -40,11 +40,11 @@ paths:
                 username:
                   type: string
                   description: ''
-                  example: deserunt
+                  example: vero
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: '^?>wL''};nylXd?VR]vs6'
+                  example: 'qp[Rn/LbO/ns'
               required:
                 - username
                 - password
@@ -82,15 +82,15 @@ paths:
                 name:
                   type: string
                   description: 'Must be between 2 and 100 characters.'
-                  example: ox
+                  example: adt
                 username:
                   type: string
                   description: 'Must match the regex /\w*$/. Must not be greater than 255 characters.'
-                  example: sw
+                  example: vvbplxqjhefgjcaiiuxsj
                 password:
                   type: string
                   description: 'Must be at least 6 characters.'
-                  example: P!%/cuO2|K
+                  example: 'k:MsJ9='
               required:
                 - name
                 - username
