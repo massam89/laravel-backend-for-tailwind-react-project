@@ -23,17 +23,10 @@ class AuthController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
 
-    /**
-     * @group Authentication
-     *
-     * API endpoints for managing authentication
-     */
-
-
      /**
      * Log in the user.
      *
-     * @bodyParam   username    string  required    The username of the  user.      Example: ...
+     * @bodyParam   username    string  required    The username of the  user.
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
      * @response {
@@ -60,8 +53,8 @@ class AuthController extends Controller
     /**
      * register the user.
      *
-     * @bodyParam   name    string  required    The name of the  user.      Example: ...
-     * @bodyParam   username    string  required    The username of the  user.      Example: ...
+     * @bodyParam   name    string  required    The name of the  user.  
+     * @bodyParam   username    string  required    The username of the  user.
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
      * @response 
@@ -91,6 +84,10 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
+     * @bodyParam   access_token    string  required    access_token
+     *
+     * @response 
+     *
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout() 
@@ -101,14 +98,20 @@ class AuthController extends Controller
     /**
      * Refresh a token.
      *
+     *  @bodyParam   access_token    string  required    access_token
+     *
+     * @response 
      * @return \Illuminate\Http\JsonResponse
      */
     public function refresh() 
     {
         return $this->createNewToken(auth()->refresh());
     }
+
     /**
-     * Get the authenticated User.
+     * Get the authenticated User's information.
+     * 
+     * @header authorization
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -134,7 +137,9 @@ class AuthController extends Controller
     }
 
     /**
-     * Check username is unique?
+     * Check username is unique.
+     * 
+     *  @bodyParam   username    string  required    username
      *
      */
 
@@ -146,6 +151,12 @@ class AuthController extends Controller
             return 'false';
         }
     }
+
+    /**
+     * get customer users from another sources "randomuser.me"
+     * 
+     * @header authorization
+     */
 
     public function customerData () 
     {

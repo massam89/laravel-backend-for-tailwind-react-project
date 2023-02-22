@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "b38efa98-6e89-4606-b857-0ca9ea640a16",
+        "_postman_id": "09a1debc-f41d-43c5-aeb2-8c8c4a93eeb9",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get a JWT via given credentials.",
+                    "name": "Log in the user.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -41,17 +41,24 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"username\":\"vero\",\"password\":\"qp[Rn\\\/LbO\\\/ns\"}"
+                            "raw": "{\"username\":\"consequatur\",\"password\":\"secret\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"access_token\": \"eyJ0eXA...\",\n \"token_type\": \"Bearer\",\n}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "Register a User.",
+                    "name": "register the user.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -72,14 +79,21 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"adt\",\"username\":\"vvbplxqjhefgjcaiiuxsj\",\"password\":\"k:MsJ9=\"}"
+                            "raw": "{\"name\":\"modi\",\"username\":\"architecto\",\"password\":\"secret\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Log the user out (Invalidate the token).",
@@ -101,13 +115,23 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"access_token\":\"modi\"}"
+                        },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Refresh a token.",
@@ -130,15 +154,22 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "@bodyParam   access_token    string  required    access_token",
                         "auth": {
                             "type": "noauth"
                         }
                     },
-                    "response": []
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
-                    "name": "Get the authenticated User.",
+                    "name": "Get the authenticated User's information.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -155,6 +186,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "authorization",
+                                "value": "et"
                             }
                         ],
                         "body": null,
@@ -186,7 +221,7 @@
                     ]
                 },
                 {
-                    "name": "Check username is unique?",
+                    "name": "Check username is unique.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -206,7 +241,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
+                        "description": "@bodyParam   username    string  required    username",
                         "auth": {
                             "type": "noauth"
                         }
@@ -214,7 +249,7 @@
                     "response": []
                 },
                 {
-                    "name": "GET api\/auth\/customer-data",
+                    "name": "get customer users from another sources \"randomuser.me\"",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -231,6 +266,10 @@
                             {
                                 "key": "Accept",
                                 "value": "application\/json"
+                            },
+                            {
+                                "key": "authorization",
+                                "value": "repellendus"
                             }
                         ],
                         "body": null,

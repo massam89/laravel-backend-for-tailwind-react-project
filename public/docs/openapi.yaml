@@ -9,8 +9,8 @@ servers:
 paths:
   /api/auth/login:
     post:
-      summary: 'Get a JWT via given credentials.'
-      operationId: getAJWTViaGivenCredentials
+      summary: 'Log in the user.'
+      operationId: logInTheUser
       description: ''
       parameters:
         -
@@ -27,7 +27,14 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n \"access_token\": \"eyJ0eXA...\",\n \"token_type\": \"Bearer\",\n}"
       tags:
         - Endpoints
       requestBody:
@@ -39,20 +46,20 @@ paths:
               properties:
                 username:
                   type: string
-                  description: ''
-                  example: vero
+                  description: 'The username of the  user.'
+                  example: consequatur
                 password:
                   type: string
-                  description: 'Must be at least 6 characters.'
-                  example: 'qp[Rn/LbO/ns'
+                  description: 'The password of the  user.'
+                  example: secret
               required:
                 - username
                 - password
       security: []
   /api/auth/register:
     post:
-      summary: 'Register a User.'
-      operationId: registerAUser
+      summary: 'register the user.'
+      operationId: registerTheUser
       description: ''
       parameters:
         -
@@ -69,7 +76,15 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
       tags:
         - Endpoints
       requestBody:
@@ -81,16 +96,16 @@ paths:
               properties:
                 name:
                   type: string
-                  description: 'Must be between 2 and 100 characters.'
-                  example: adt
+                  description: 'The name of the  user.'
+                  example: modi
                 username:
                   type: string
-                  description: 'Must match the regex /\w*$/. Must not be greater than 255 characters.'
-                  example: vvbplxqjhefgjcaiiuxsj
+                  description: 'The username of the  user.'
+                  example: architecto
                 password:
                   type: string
-                  description: 'Must be at least 6 characters.'
-                  example: 'k:MsJ9='
+                  description: 'The password of the  user.'
+                  example: secret
               required:
                 - name
                 - username
@@ -116,15 +131,36 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
       tags:
         - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                access_token:
+                  type: string
+                  description: access_token
+                  example: modi
+              required:
+                - access_token
       security: []
   /api/auth/refresh:
     post:
       summary: 'Refresh a token.'
       operationId: refreshAToken
-      description: ''
+      description: '@bodyParam   access_token    string  required    access_token'
       parameters:
         -
           in: header
@@ -140,14 +176,22 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
       tags:
         - Endpoints
       security: []
   /api/auth/user-profile:
     get:
-      summary: 'Get the authenticated User.'
-      operationId: getTheAuthenticatedUser
+      summary: 'Get the authenticated User''s information.'
+      operationId: getTheAuthenticatedUsersInformation
       description: ''
       parameters:
         -
@@ -162,6 +206,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: authorization
+          description: ''
+          example: et
           schema:
             type: string
       responses:
@@ -182,9 +233,9 @@ paths:
       security: []
   /api/auth/check-username:
     post:
-      summary: 'Check username is unique?'
+      summary: 'Check username is unique.'
       operationId: checkUsernameIsUnique
-      description: ''
+      description: '@bodyParam   username    string  required    username'
       parameters:
         -
           in: header
@@ -206,8 +257,8 @@ paths:
       security: []
   /api/auth/customer-data:
     get:
-      summary: ''
-      operationId: getApiAuthCustomerData
+      summary: 'get customer users from another sources "randomuser.me"'
+      operationId: getCustomerUsersFromAnotherSourcesrandomuserme
       description: ''
       parameters:
         -
@@ -222,6 +273,13 @@ paths:
           name: Accept
           description: ''
           example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: authorization
+          description: ''
+          example: repellendus
           schema:
             type: string
       responses:

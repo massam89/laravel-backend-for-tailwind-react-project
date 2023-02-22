@@ -72,10 +72,10 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-login">
-                                <a href="#endpoints-POSTapi-auth-login">Get a JWT via given credentials.</a>
+                                <a href="#endpoints-POSTapi-auth-login">Log in the user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-register">
-                                <a href="#endpoints-POSTapi-auth-register">Register a User.</a>
+                                <a href="#endpoints-POSTapi-auth-register">register the user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-logout">
                                 <a href="#endpoints-POSTapi-auth-logout">Log the user out (Invalidate the token).</a>
@@ -84,13 +84,13 @@
                                 <a href="#endpoints-POSTapi-auth-refresh">Refresh a token.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-auth-user-profile">
-                                <a href="#endpoints-GETapi-auth-user-profile">Get the authenticated User.</a>
+                                <a href="#endpoints-GETapi-auth-user-profile">Get the authenticated User's information.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-check-username">
-                                <a href="#endpoints-POSTapi-auth-check-username">Check username is unique?</a>
+                                <a href="#endpoints-POSTapi-auth-check-username">Check username is unique.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-auth-customer-data">
-                                <a href="#endpoints-GETapi-auth-customer-data">GET api/auth/customer-data</a>
+                                <a href="#endpoints-GETapi-auth-customer-data">get customer users from another sources "randomuser.me"</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -125,7 +125,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="endpoints-POSTapi-auth-login">Get a JWT via given credentials.</h2>
+                                <h2 id="endpoints-POSTapi-auth-login">Log in the user.</h2>
 
 <p>
 </p>
@@ -142,8 +142,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"username\": \"vero\",
-    \"password\": \"qp[Rn\\/LbO\\/ns\"
+    \"username\": \"consequatur\",
+    \"password\": \"secret\"
 }"
 </code></pre></div>
 
@@ -159,8 +159,8 @@ const headers = {
 };
 
 let body = {
-    "username": "vero",
-    "password": "qp[Rn\/LbO\/ns"
+    "username": "consequatur",
+    "password": "secret"
 };
 
 fetch(url, {
@@ -172,7 +172,17 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-login">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+ &quot;access_token&quot;: &quot;eyJ0eXA...&quot;,
+ &quot;token_type&quot;: &quot;Bearer&quot;,
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-login" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-login"></span>:
@@ -241,10 +251,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="username"                data-endpoint="POSTapi-auth-login"
-               value="vero"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>vero</code></p>
+<p>The username of the  user. Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -252,14 +262,14 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-auth-login"
-               value="qp[Rn/LbO/ns"
+               value="secret"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>qp[Rn/LbO/ns</code></p>
+<p>The password of the  user. Example: <code>secret</code></p>
         </div>
         </form>
 
-                    <h2 id="endpoints-POSTapi-auth-register">Register a User.</h2>
+                    <h2 id="endpoints-POSTapi-auth-register">register the user.</h2>
 
 <p>
 </p>
@@ -276,9 +286,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"adt\",
-    \"username\": \"vvbplxqjhefgjcaiiuxsj\",
-    \"password\": \"k:MsJ9=\"
+    \"name\": \"modi\",
+    \"username\": \"architecto\",
+    \"password\": \"secret\"
 }"
 </code></pre></div>
 
@@ -294,9 +304,9 @@ const headers = {
 };
 
 let body = {
-    "name": "adt",
-    "username": "vvbplxqjhefgjcaiiuxsj",
-    "password": "k:MsJ9="
+    "name": "modi",
+    "username": "architecto",
+    "password": "secret"
 };
 
 fetch(url, {
@@ -308,7 +318,14 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-register">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-register" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-register"></span>:
@@ -377,10 +394,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-auth-register"
-               value="adt"
+               value="modi"
                data-component="body">
     <br>
-<p>Must be between 2 and 100 characters. Example: <code>adt</code></p>
+<p>The name of the  user. Example: <code>modi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>username</code></b>&nbsp;&nbsp;
@@ -388,10 +405,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="username"                data-endpoint="POSTapi-auth-register"
-               value="vvbplxqjhefgjcaiiuxsj"
+               value="architecto"
                data-component="body">
     <br>
-<p>Must match the regex /\w*$/. Must not be greater than 255 characters. Example: <code>vvbplxqjhefgjcaiiuxsj</code></p>
+<p>The username of the  user. Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -399,10 +416,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="password"                data-endpoint="POSTapi-auth-register"
-               value="k:MsJ9="
+               value="secret"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>k:MsJ9=</code></p>
+<p>The password of the  user. Example: <code>secret</code></p>
         </div>
         </form>
 
@@ -421,7 +438,11 @@ fetch(url, {
     <pre><code class="language-bash">curl --request POST \
     "http://localhost/api/auth/logout" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --data "{
+    \"access_token\": \"modi\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -434,15 +455,27 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "access_token": "modi"
+};
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
 <span id="example-responses-POSTapi-auth-logout">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-logout" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-logout"></span>:
@@ -504,14 +537,26 @@ fetch(url, {
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>access_token</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="access_token"                data-endpoint="POSTapi-auth-logout"
+               value="modi"
+               data-component="body">
+    <br>
+<p>access_token Example: <code>modi</code></p>
+        </div>
+        </form>
 
                     <h2 id="endpoints-POSTapi-auth-refresh">Refresh a token.</h2>
 
 <p>
 </p>
 
-
+<p>@bodyParam   access_token    string  required    access_token</p>
 
 <span id="example-requests-POSTapi-auth-refresh">
 <blockquote>Example request:</blockquote>
@@ -542,7 +587,14 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-refresh">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-refresh" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-refresh"></span>:
@@ -606,7 +658,7 @@ fetch(url, {
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-auth-user-profile">Get the authenticated User.</h2>
+                    <h2 id="endpoints-GETapi-auth-user-profile">Get the authenticated User&#039;s information.</h2>
 
 <p>
 </p>
@@ -621,7 +673,8 @@ fetch(url, {
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost/api/auth/user-profile" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "authorization: et"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -632,6 +685,7 @@ fetch(url, {
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "authorization": "et",
 };
 
 fetch(url, {
@@ -720,14 +774,25 @@ access-control-allow-origin: *
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="authorization"                data-endpoint="GETapi-auth-user-profile"
+               value="et"
+               data-component="header">
+    <br>
+<p>Example: <code>et</code></p>
+            </div>
                         </form>
 
-                    <h2 id="endpoints-POSTapi-auth-check-username">Check username is unique?</h2>
+                    <h2 id="endpoints-POSTapi-auth-check-username">Check username is unique.</h2>
 
 <p>
 </p>
 
-
+<p>@bodyParam   username    string  required    username</p>
 
 <span id="example-requests-POSTapi-auth-check-username">
 <blockquote>Example request:</blockquote>
@@ -822,7 +887,7 @@ fetch(url, {
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-auth-customer-data">GET api/auth/customer-data</h2>
+                    <h2 id="endpoints-GETapi-auth-customer-data">get customer users from another sources &quot;randomuser.me&quot;</h2>
 
 <p>
 </p>
@@ -837,7 +902,8 @@ fetch(url, {
     <pre><code class="language-bash">curl --request GET \
     --get "http://localhost/api/auth/customer-data" \
     --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Accept: application/json" \
+    --header "authorization: repellendus"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -848,6 +914,7 @@ fetch(url, {
 const headers = {
     "Content-Type": "application/json",
     "Accept": "application/json",
+    "authorization": "repellendus",
 };
 
 fetch(url, {
@@ -935,6 +1002,17 @@ access-control-allow-origin: *
                data-component="header">
     <br>
 <p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="authorization"                data-endpoint="GETapi-auth-customer-data"
+               value="repellendus"
+               data-component="header">
+    <br>
+<p>Example: <code>repellendus</code></p>
             </div>
                         </form>
 
