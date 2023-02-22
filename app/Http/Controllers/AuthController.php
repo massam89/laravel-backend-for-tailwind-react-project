@@ -22,6 +22,26 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    /**
+     * @group Authentication
+     *
+     * API endpoints for managing authentication
+     */
+
+
+     /**
+     * Log in the user.
+     *
+     * @bodyParam   username    string  required    The username of the  user.      Example: ...
+     * @bodyParam   password    string  required    The password of the  user.   Example: secret
+     *
+     * @response {
+     *  "access_token": "eyJ0eXA...",
+     *  "token_type": "Bearer",
+     * }
+     */
+
     public function login(Request $request)
     {
     	$validator = Validator::make($request->all(), [
