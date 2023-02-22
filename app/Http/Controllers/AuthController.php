@@ -56,9 +56,16 @@ class AuthController extends Controller
         }
         return $this->createNewToken($token);
     }
+
     /**
-     * Register a User.
+     * register the user.
      *
+     * @bodyParam   name    string  required    The name of the  user.      Example: ...
+     * @bodyParam   username    string  required    The username of the  user.      Example: ...
+     * @bodyParam   password    string  required    The password of the  user.   Example: secret
+     *
+     * @response 
+     
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request) 
