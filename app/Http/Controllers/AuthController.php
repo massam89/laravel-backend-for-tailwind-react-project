@@ -29,10 +29,6 @@ class AuthController extends Controller
      * @bodyParam   username    string  required    The username of the  user. Example: ali
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
      *
-     * @response {
-     *  "access_token": "eyJ0eXA...",
-     *  "token_type": "Bearer",
-     * }
      */
 
     public function login(Request $request)
@@ -56,9 +52,7 @@ class AuthController extends Controller
      * @bodyParam   name    string  required    The name of the  user.  Example: ali
      * @bodyParam   username    string  required    The username of the  user. Example: username
      * @bodyParam   password    string  required    The password of the  user.   Example: secret
-     *
-     * @response 
-     
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request) 
@@ -85,9 +79,7 @@ class AuthController extends Controller
      * Log the user out (Invalidate the token).
      *
      * @header authorization Example:bearer eyJ0eXAiOiJKV...
-     *
-     * @response 
-     *
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function logout() 
@@ -100,7 +92,6 @@ class AuthController extends Controller
      *
      *  @bodyParam   access_token    string  required    access_token
      *
-     * @response 
      * @return \Illuminate\Http\JsonResponse
      */
     public function refresh() 
