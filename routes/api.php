@@ -12,7 +12,7 @@ use App\Http\Controllers\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['middleware' => ['api', 'lscache:private;esi=on;max-age=120'],'prefix' => 'auth'], function () {
+Route::group(['middleware' => ['api', 'lscache:no-cache'],'prefix' => 'auth'], function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
