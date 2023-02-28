@@ -78,7 +78,7 @@ class AuthController extends Controller
     /**
      * Log the user out (Invalidate the token).
      *
-     * @header authorization Example:bearer eyJ0eXAiOiJKV...
+     * @header authorization bearer eyJ0eXAiOiJKV...
      * 
      * @return \Illuminate\Http\JsonResponse
      */
@@ -102,7 +102,7 @@ class AuthController extends Controller
     /**
      * Get the authenticated User's information.
      * 
-     * @header authorization Example:bearer eyJ0eXAiOiJKV...
+     * @header authorization bearer eyJ0eXAiOiJKV...
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -146,7 +146,7 @@ class AuthController extends Controller
     /**
      * get customer users from another sources "randomuser.me"
      * 
-     * @header authorization Example:bearer eyJ0eXAiOiJKV...
+     * @header authorization bearer eyJ0eXAiOiJKV...
      */
 
     public function customerData () 
