@@ -20,4 +20,5 @@ Route::group(['middleware' => ['api', 'lscache:no-cache'],'prefix' => 'auth'], f
     Route::get('/user-profile', [AuthController::class, 'userProfile']);   
     Route::post('/check-username',  [AuthController::class, 'checkUsername']);
     Route::get('/customer-data',  [AuthController::class, 'customerData']);
+    Route::get('/currency-data/{quantity}',  [AuthController::class, 'currencyData']);
 });

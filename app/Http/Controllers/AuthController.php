@@ -155,4 +155,17 @@ class AuthController extends Controller
         $res = $client->request('GET', '/api/?results=20');
         return $res->getBody();
     }
+
+    /**
+     * get currencies data from another sources "coingecko.com"
+     * 
+     * @header authorization bearer eyJ0eXAiOiJKV...
+     */
+
+    public function currencyData ($quantity) 
+    {
+        $client = new Client(['base_uri' => 'https://api.coingecko.com/']);
+        $res = $client->request('GET', "/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page={$quantity}&page=1&sparkline=false");
+        return $res->getBody();
+    }
 }
